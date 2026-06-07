@@ -1,0 +1,100 @@
+.today {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .today__label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+  
+  .today__entry {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+  
+  .today__title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .today__destination {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .today__section {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .today__section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .today__section--travel {
+    background: var(--color-travel-soft);
+    border: 1px solid var(--color-travel);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  
+  .today__section--travel .today__section-label {
+    color: var(--color-travel);
+  }
+  
+  .today__section-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .today__item {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .today__item-name {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+  }
+  
+  .today__item-time {
+    font-size: 11px;
+    color: var(--color-accent);
+    display: block;
+    margin-top: 2px;
+  }
+  
+  .today__item-desc {
+    font-size: 12px;
+    color: var(--color-ink-muted);
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+  
+  .today__notes {
+    font-size: 12px;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    line-height: 1.6;
+  }

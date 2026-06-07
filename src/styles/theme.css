@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
+
+:root {
+  /* Colors */
+  --color-bg:          #F7F5F0;
+  --color-surface:     #FFFFFF;
+  --color-border:      #E2DDD6;
+  --color-ink:         #1A1714;
+  --color-ink-muted:   #7A7470;
+  --color-accent:      #C0392B;
+  --color-accent-soft: #F5EAE8;
+  --color-travel:      #2C3E6B;
+  --color-travel-soft: #EAECf2;
+
+  /* Typography */
+  --font-display: 'Shippori Mincho', serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+
+  /* Misc */
+  --radius:    6px;
+  --max-width: 480px;
+}
