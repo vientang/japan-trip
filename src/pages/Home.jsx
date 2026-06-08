@@ -7,7 +7,7 @@ const TRIP_START = new Date('2026-06-21')
 const TRIP_END   = new Date('2026-07-09')
 
 export default function Home() {
-  const today = new Date()
+  const today = new Date('2026-06-24')
   const duringTrip = today >= TRIP_START && today <= TRIP_END
 
   return (
@@ -18,7 +18,8 @@ export default function Home() {
         <p className="home__subtitle">Japan Trip</p>
       </header>
 
-      {duringTrip && <TodayView itinerary={itinerary} today={today} />}
+      <TodayView itinerary={itinerary} today={today} />
+      {/* {duringTrip && <TodayView itinerary={itinerary} today={today} />} */}
 
       <DestinationCards itinerary={itinerary} />
     </div>

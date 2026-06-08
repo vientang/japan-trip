@@ -17,7 +17,7 @@ export default function TodayView({ itinerary, today }) {
   const todayEntries = itinerary.filter(d => d.date === todayStr)
 
   if (!todayEntries.length) return null
-
+  
   return (
     <section className="today">
       <p className="today__label">Today</p>
@@ -28,8 +28,9 @@ export default function TodayView({ itinerary, today }) {
 
           {SECTIONS.map(({ key, label }) => {
             if (key === 'logistics') {
-              const { transport, accommodation } = entry.logistics
-              if (!transport && !accommodation) return null
+                const { transport, accommodation } = entry.logistics
+                const isTravelDay = entry.destination.includes('→')
+                if (!isTravelDay) return null
               return (
                 <div key={key} className="today__section today__section--travel">
                   <p className="today__section-label">{label}</p>
