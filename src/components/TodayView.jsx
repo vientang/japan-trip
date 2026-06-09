@@ -38,10 +38,15 @@ export default function TodayView({ itinerary, today }) {
                 const { transport, accommodation } = entry.logistics
                 const isTravelDay = entry.destination.includes('→')
                 if (!isTravelDay) return null
+                const legs = Array.isArray(transport) ? transport : []
               return (
                 <div key={key} className="today__section today__section--travel">
                   <p className="today__section-label">{label}</p>
-                  {transport && <p className="today__item">{transport}</p>}
+                  {legs.map((leg, i) => (
+                    <p key={i} className="today__item">
+                      {leg.description}{leg.from && leg.to ? ` · ${leg.from} → ${leg.to}` : ''}
+                    </p>
+                  ))}
                   {accommodation && <p className="today__item">{accommodation}</p>}
                 </div>
               )

@@ -2,6 +2,15 @@ import { useParams, useNavigate } from 'react-router-dom'
 import itinerary from '../data/itinerary'
 import './Day.css'
 
+const TRANSPORT_LABELS = {
+  van:     'Private Transfer',
+  bus:     'Bus',
+  train:   'Train',
+  taxi:    'Taxi',
+  luggage: 'Luggage Forwarding',
+  flight:  'Flight',
+}
+
 const SECTIONS = [
   { key: 'bookings', label: 'Bookings' },
   { key: 'see',      label: 'See' },
@@ -12,6 +21,16 @@ const SECTIONS = [
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00')
   return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+}
+
+function ConfNumber({ value }) {
+  if (!value) return null
+  const isPlaceholder = value.startsWith('ADD-')
+  return (
+    <p className={`day-item__conf ${isPlaceholder ? 'day-item__conf--placeholder' : ''}`}>
+      {isPlaceholder ? value.replace(/-/g, ' ') : `Conf · ${value}`}
+    </p>
+  )
 }
 
 export default function Day() {
@@ -27,6 +46,7 @@ export default function Day() {
   )
 
   const isTravelDay = entry.destination.includes('→')
+  const transportLegs = entry.logistics?.transport ?? []
 
   return (
     <div className="day-page">
@@ -38,11 +58,26 @@ export default function Day() {
         <p className="day-page__destination">{entry.destination}</p>
       </header>
 
-      {isTravelDay && (
-        <div className="day-section day-section--travel">
-          <p className="day-section__label">Travel</p>
-          {entry.logistics.transport && <p className="day-item day-item--plain">{entry.logistics.transport}</p>}
-          {entry.logistics.accommodation && <p className="day-item day-item--plain">{entry.logistics.accommodation}</p>}
+      {transportLegs.length > 0 && (
+        <div className={`day-section ${isTravelDay ? 'day-section--travel' : ''}`}>
+          <p className="day-section__label">Transport</p>
+          {transportLegs.map((leg, i) => (
+            <div key={i} className="transport-leg">
+              <div className="transport-leg__header">
+                <span className="transport-leg__type">
+                  {TRANSPORT_LABELS[leg.type] ?? leg.type}
+                </span>
+                {leg.time && <span className="transport-leg__time">{leg.time}</span>}
+              </div>
+              {leg.description && <p className="transport-leg__desc">{leg.description}</p>}
+              {(leg.from || leg.to) && (
+                <p className="transport-leg__route">
+                  {leg.from && leg.to ? `${leg.from} → ${leg.to}` : leg.from || leg.to}
+                </p>
+              )}
+              <ConfNumber value={leg.confirmationNumber} />
+            </div>
+          ))}
         </div>
       )}
 
@@ -59,9 +94,8 @@ export default function Day() {
                   {item.time && <span className="day-item__time">{item.time}</span>}
                 </div>
                 {item.description && <p className="day-item__desc">{item.description}</p>}
-                {item.confirmationNumber && (
-                  <p className="day-item__conf">Conf: {item.confirmationNumber}</p>
-                )}
+                {item.address && <p className="day-item__address">{item.address}</p>}
+                <ConfNumber value={item.confirmationNumber} />
               </div>
             ))}
           </div>

@@ -5,46 +5,46 @@ const itinerary = [
     day: "Sunday",
     destination: "Tokyo",
     title: "Arrival & Local Walk",
-    bookings: [
-      {
-        name: "Hotel Minn Nihonbashi Suitengumae",
-        description: "Home base for Tokyo stay",
-        location: "Nihonbashi, Tokyo",
-        time: "Check-in",
-        confirmationNumber: ""
-      },
-      {
-        name: "Narita Airport Arrival",
-        description: "Flight arrives at Narita",
-        location: "Narita International Airport",
-        time: "14:50",
-        confirmationNumber: ""
-      }
-    ],
+    bookings: [],
     see: [
       {
         name: "Ningyocho",
         description: "Traditional neighborhood near the hotel — great for an evening stroll",
-        location: "Nihonbashi, Tokyo",
+        address: "Nihonbashi-Ningyocho, Chuo-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [
       {
         name: "Ningyocho Traditional Snacks",
         description: "Pick up local snacks while exploring the neighborhood",
-        location: "Ningyocho, Nihonbashi",
+        address: "Nihonbashi-Ningyocho, Chuo-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [],
     logistics: {
-      transport: "Private van transfer from Narita Airport to hotel",
-      accommodation: "Hotel Minn Nihonbashi Suitengumae"
+      transport: [
+        {
+          type: "flight",
+          description: "Flight arrives at Narita",
+          from: "Origin",
+          to: "Narita International Airport (NRT)",
+          time: "14:50",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+        {
+          type: "van",
+          description: "Private van transfer",
+          from: "Narita International Airport",
+          to: "Hotel Minn Nihonbashi Suitengumae",
+          time: "After arrival",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+      ],
+      accommodation: "Hotel Minn Nihonbashi Suitengumae",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-06-22",
@@ -56,61 +56,63 @@ const itinerary = [
       {
         name: "Senso-ji Temple",
         description: "Tokyo's oldest and most famous temple",
-        location: "Asakusa, Tokyo",
+        address: "2-3-1 Asakusa, Taito-ku, Tokyo 111-0032",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Nakamise-dori Shopping Street",
         description: "Traditional shopping street leading to Senso-ji, great for souvenirs",
-        location: "Asakusa, Tokyo",
+        address: "1-36-3 Asakusa, Taito-ku, Tokyo 111-0032",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Kappabashi Kitchen Supply Town",
         description: "Street lined with kitchen and restaurant supply shops — unique Tokyo experience",
-        location: "Asakusa, Tokyo",
+        address: "Kappabashi-dori, Matsugaya, Taito-ku, Tokyo 111-0036",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Tokyo Skytree",
         description: "One of the world's tallest towers with panoramic city views",
-        location: "Asakusa, Tokyo",
+        address: "1-1-2 Oshiage, Sumida-ku, Tokyo 131-0045",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [
       {
         name: "Kuroge Wagyu Ichinoya Asakusa",
         description: "Famous wagyu beef restaurant in Asakusa",
-        location: "Asakusa, Tokyo",
+        address: "Asakusa, Taito-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Age.3",
         description: "Known for their stuffed cream sandwich",
-        location: "Asakusa, Tokyo",
+        address: "Asakusa, Taito-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Melon Pan",
         description: "Look for melon pan from local bakeries or street vendors",
-        location: "Asakusa, Tokyo",
+        address: "Asakusa, Taito-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [],
     logistics: {
-      transport: "Train or walk from Nihonbashi to Asakusa",
-      accommodation: "Hotel Minn Nihonbashi Suitengumae"
+      transport: [
+        {
+          type: "train",
+          description: "Tokyo Metro Hanzomon Line",
+          from: "Suitengumae Station",
+          to: "Oshiage Station (Skytree)",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "Hotel Minn Nihonbashi Suitengumae",
     },
-    notes: "Asakusa is pronounced 'a-sak-sa'"
+    notes: "Asakusa is pronounced 'a-sak-sa'",
   },
   {
     date: "2026-06-23",
@@ -122,89 +124,75 @@ const itinerary = [
       {
         name: "Shibuya Crossing",
         description: "The world's busiest pedestrian crossing — best viewed from above at Starbucks or Mag's Park",
-        location: "Shibuya, Tokyo",
+        address: "2-2-1 Dogenzaka, Shibuya-ku, Tokyo 150-0043",
         time: "",
-        confirmationNumber: ""
       },
       {
-        name: "Harajuku",
+        name: "Harajuku & Takeshita-dori",
         description: "Tokyo's fashion district — quirky street style and shops",
-        location: "Harajuku, Tokyo",
+        address: "1-17 Jingumae, Shibuya-ku, Tokyo 150-0001",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Meiji Jingu",
         description: "Serene Shinto shrine surrounded by forest in the middle of the city",
-        location: "Harajuku, Tokyo",
+        address: "1-1 Yoyogikamizonocho, Shibuya-ku, Tokyo 151-8557",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Tokyo Public Toilets",
         description: "Famous architectural public restrooms designed by world-class architects",
-        location: "Shibuya, Tokyo",
+        address: "Shibuya-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
-      },
-      {
-        name: "Cat Cafe",
-        description: "Relax with cats at one of Tokyo's famous cat cafes",
-        location: "Shibuya / Harajuku area",
-        time: "",
-        confirmationNumber: ""
-      },
-      {
-        name: "Omoide Yokocho (Memory Lane)",
-        description: "Narrow alley packed with tiny yakitori stalls — atmospheric and old-school Tokyo",
-        location: "Shinjuku, Tokyo",
-        time: "",
-        confirmationNumber: ""
       },
       {
         name: "Cat Street",
         description: "Less mainstream shopping street with independent boutiques",
-        location: "Harajuku, Tokyo",
+        address: "6-19-13 Jingumae, Shibuya-ku, Tokyo 150-0001",
         time: "",
-        confirmationNumber: ""
       },
       {
-        name: "Harry Potter Train Station",
-        description: "Visit the train station that inspired Platform 9¾",
-        location: "Tokyo",
-        time: "",
-        confirmationNumber: ""
-      }
+        name: "Omoide Yokocho (Memory Lane)",
+        description: "Narrow alley packed with tiny yakitori stalls — atmospheric and old-school Tokyo",
+        address: "1-2-14 Nishishinjuku, Shinjuku-ku, Tokyo 160-0023",
+        time: "Evening",
+      },
     ],
     eat: [
       {
         name: "Omoide Yokocho",
         description: "Street food and yakitori in the atmospheric Memory Lane alley",
-        location: "Shinjuku, Tokyo",
-        time: "",
-        confirmationNumber: ""
+        address: "1-2-14 Nishishinjuku, Shinjuku-ku, Tokyo 160-0023",
+        time: "Evening",
       },
       {
         name: "Conveyor Belt Sushi",
         description: "Kaiten-zushi — fun and interactive sushi on a conveyor belt",
-        location: "Shibuya / Shinjuku area",
+        address: "Shibuya or Shinjuku area",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Vending Machine",
         description: "Try something from one of Japan's legendary vending machines",
-        location: "Anywhere",
+        address: "Anywhere",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [],
     logistics: {
-      transport: "Train between Shibuya, Harajuku, and Shinjuku",
-      accommodation: "Hotel Minn Nihonbashi Suitengumae"
+      transport: [
+        {
+          type: "train",
+          description: "Tokyo Metro — various lines connect these neighborhoods",
+          from: "Suitengumae Station",
+          to: "Shibuya / Harajuku / Shinjuku",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "Hotel Minn Nihonbashi Suitengumae",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-06-24",
@@ -215,41 +203,47 @@ const itinerary = [
       {
         name: "teamLab Planets",
         description: "Immersive digital art museum — timed entry, shoes off, wading through water",
-        location: "Toyosu, Tokyo",
+        address: "6-1-16 Toyosu, Koto-ku, Tokyo 135-0061",
         time: "9:00am–9:30am",
-        confirmationNumber: ""
-      }
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [
       {
         name: "Godaime Hanayama Udon Ginza",
         description: "Famous for their dipping udon (tsukemen-style udon)",
-        location: "Ginza, Tokyo",
+        address: "Ginza, Chuo-ku, Tokyo",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Kirby Petit Cafe",
         description: "Themed cafe based on the Kirby video game character",
-        location: "Tokyo",
+        address: "Tokyo",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Tsukiji Outer Market",
         description: "Famous fish market outer area with fresh seafood, tamagoyaki, and street food",
-        location: "Tsukiji, Tokyo",
-        time: "",
-        confirmationNumber: ""
-      }
+        address: "4-16-2 Tsukiji, Chuo-ku, Tokyo 104-0045",
+        time: "Morning recommended",
+      },
     ],
     explore: [],
     logistics: {
-      transport: "Train to Toyosu, then to Tsukiji/Ginza area",
-      accommodation: "Hotel Minn Nihonbashi Suitengumae"
+      transport: [
+        {
+          type: "train",
+          description: "Yurikamome Line to teamLab, then walk or taxi to Tsukiji",
+          from: "Shimbashi Station",
+          to: "Shin-Toyosu Station (1 min walk to teamLab)",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "Hotel Minn Nihonbashi Suitengumae",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-06-25",
@@ -259,28 +253,36 @@ const itinerary = [
     bookings: [
       {
         name: "Ghibli Museum",
-        description: "Museum dedicated to Studio Ghibli films — whimsical and magical",
-        location: "Mitaka, Tokyo",
+        description: "Museum dedicated to Studio Ghibli films — whimsical and magical. Entry by advance reservation only.",
+        address: "1-1-83 Shimorenjaku, Mitaka-shi, Tokyo 181-0013",
         time: "2:00pm",
-        confirmationNumber: ""
-      }
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [],
     explore: [
       {
-        name: "Kichijoji",
+        name: "Kichijoji & Inokashira Park",
         description: "Charming neighborhood near the museum — great for morning exploration before entry time. Inokashira Park is nearby and lovely.",
-        location: "Kichijoji, Tokyo",
-        time: "",
-        confirmationNumber: ""
-      }
+        address: "Kichijoji, Musashino-shi, Tokyo 180-0003",
+        time: "Morning",
+      },
     ],
     logistics: {
-      transport: "Train to Mitaka or Kichijoji station",
-      accommodation: "Hotel Minn Nihonbashi Suitengumae"
+      transport: [
+        {
+          type: "train",
+          description: "JR Chuo Line (Rapid)",
+          from: "Shinjuku Station",
+          to: "Mitaka Station (15 min walk to museum, or take community bus)",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "Hotel Minn Nihonbashi Suitengumae",
     },
-    notes: "Explore Kichijoji in the morning before the 2pm Ghibli entry"
+    notes: "Explore Kichijoji in the morning before the 2pm Ghibli entry",
   },
   {
     date: "2026-06-26",
@@ -289,43 +291,43 @@ const itinerary = [
     title: "Harry Potter Day",
     bookings: [
       {
-        name: "Warner Bros. Studio — The Making of Harry Potter",
-        description: "Official Harry Potter studio tour with sets, costumes, and props",
-        location: "Tokyo",
+        name: "Warner Bros. Studio Tour Tokyo — The Making of Harry Potter",
+        description: "Official Harry Potter studio tour with authentic sets, costumes, and props",
+        address: "1-1-7 Kasugacho, Nerima-ku, Tokyo 179-0074",
         time: "10:30am",
-        confirmationNumber: ""
-      }
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [],
     explore: [
       {
-        name: "Find a Claw Machine Arcade",
+        name: "Claw Machine Arcade",
         description: "Japan's UFO catcher arcades are a must — Akihabara or Shibuya have great options",
-        location: "Akihabara or Shibuya",
+        address: "Akihabara, Chiyoda-ku, Tokyo / Shibuya, Tokyo",
         time: "",
-        confirmationNumber: ""
       },
       {
-        name: "Sumo Wrestling Training Session or Tour",
-        description: "Watch sumo wrestlers train at a stable — must book in advance",
-        location: "Ryogoku area, Tokyo",
+        name: "Manga & Anime — Akihabara",
+        description: "Explore Akihabara for manga, anime, and collectibles",
+        address: "Akihabara, Chiyoda-ku, Tokyo 101-0021",
         time: "",
-        confirmationNumber: ""
       },
-      {
-        name: "Manga Area",
-        description: "Explore Akihabara or Nakano Broadway for manga, anime, and collectibles",
-        location: "Akihabara, Tokyo",
-        time: "",
-        confirmationNumber: ""
-      }
     ],
     logistics: {
-      transport: "",
-      accommodation: "Hotel Minn Nihonbashi Suitengumae"
+      transport: [
+        {
+          type: "train",
+          description: "Seibu Ikebukuro Line (direct) or Toei Oedo Line",
+          from: "Seibu Ikebukuro Station / Shinjuku Station",
+          to: "Toshimaen Station (2 min walk to studio)",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "Hotel Minn Nihonbashi Suitengumae",
     },
-    notes: ""
+    notes: "Check out of Hotel Minn tomorrow morning before heading to Tokyo Station",
   },
   {
     date: "2026-06-27",
@@ -334,44 +336,61 @@ const itinerary = [
     title: "Departure to Mt. Fuji / Yamanakako",
     bookings: [
       {
-        name: "Direct Highway Bus — Tokyo to Mt. Fuji Station",
-        description: "JR Highway Bus from Tokyo Station Yaesu South Exit. Luggage accepted on board.",
-        location: "Tokyo Station Yaesu South Exit (JR Highway Bus Terminal)",
-        time: "",
-        confirmationNumber: ""
-      },
-      {
-        name: "KIMIEN Apartments",
+        name: "KIMIEN Hotel Apartments",
         description: "Hotel apartment in peaceful Lake Yamanaka area — less crowded than Kawaguchi with great Mt. Fuji views",
-        location: "1410 Yamanaka, Yamanakako-mura, Minamitsuru-gun, Yamanashi Prefecture",
+        address: "1410 Yamanaka, Yamanakako-mura, Minamitsuru-gun, Yamanashi 401-0501",
         time: "Check-in",
-        confirmationNumber: ""
-      }
+        phone: "0555-28-5171",
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [
       {
         name: "Houtou Noodles",
         description: "Famous regional dish — thick miso-based noodles with pumpkin. A Mt. Fuji area specialty.",
-        location: "Yamanakako area",
+        address: "Yamanakako area, Yamanashi",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [
       {
         name: "Lake Kawaguchi",
         description: "About 25 min away — panoramic view of Mt. Fuji across the lake",
-        location: "Lake Kawaguchi, Yamanashi",
+        address: "Kawaguchiko, Fujikawaguchiko-cho, Minamitsuru-gun, Yamanashi 401-0301",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     logistics: {
-      transport: "Highway bus from Tokyo Station (¥13,200). Taxi from Mt. Fuji Station to hotel (~15 min). Phone: 0555-28-5171",
-      accommodation: "KIMIEN Apartments — 1410 Yamanaka, Yamanakako-mura, Minamitsuru-gun, Yamanashi"
+      transport: [
+        {
+          type: "luggage",
+          description: "Yamato TA-Q-BIN luggage forwarding",
+          from: "Hotel Minn Nihonbashi Suitengumae",
+          to: "KIMIEN Hotel Apartments",
+          time: "Arrange day before — pickup by 12:00pm",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+        {
+          type: "bus",
+          description: "JR Highway Bus (¥13,200)",
+          from: "Tokyo Station — Yaesu South Exit, JR Highway Bus Terminal",
+          to: "Fujisan (Mt. Fuji) Station",
+          time: "ADD-DEPARTURE-TIME",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+        {
+          type: "taxi",
+          description: "Taxi to hotel",
+          from: "Fujisan Station",
+          to: "KIMIEN Hotel Apartments",
+          time: "~15 min",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "KIMIEN Hotel Apartments",
     },
-    notes: "Check out of Hotel Minn Nihonbashi Suitengumae before heading to Tokyo Station"
+    notes: "Check out of Hotel Minn before heading to Tokyo Station. KIMIEN tel: 0555-28-5171",
   },
 
   // ─── MT. FUJI / YAMANAKAKO ───────────────────────────────────────────────
@@ -385,18 +404,26 @@ const itinerary = [
       {
         name: "Oshino Hakkai",
         description: "Eight crystal-clear spring ponds fed by Mt. Fuji snowmelt. Beautiful heritage site — go early to beat crowds.",
-        location: "Oshino, Yamanashi",
+        address: "697 Oshino, Oshino-mura, Minamitsuru-gun, Yamanashi 401-0511",
         time: "Early morning recommended",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [],
     explore: [],
     logistics: {
-      transport: "15-minute drive or bus from hotel",
-      accommodation: "KIMIEN Apartments"
+      transport: [
+        {
+          type: "taxi",
+          description: "Taxi or drive from hotel",
+          from: "KIMIEN Hotel Apartments",
+          to: "Oshino Hakkai",
+          time: "~15 min",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "KIMIEN Hotel Apartments",
     },
-    notes: "Go early — it gets busy"
+    notes: "Go early — it gets busy",
   },
   {
     date: "2026-06-29",
@@ -408,10 +435,35 @@ const itinerary = [
     eat: [],
     explore: [],
     logistics: {
-      transport: "Transfer luggage and check out. Transit to Kyoto via Shinkansen recommended.",
-      accommodation: "MIMARU Kyoto Nijo Castle (check-in)"
+      transport: [
+        {
+          type: "luggage",
+          description: "Yamato TA-Q-BIN luggage forwarding",
+          from: "KIMIEN Hotel Apartments",
+          to: "MIMARU Kyoto Nijo Castle",
+          time: "Arrange day before — pickup by 11:00am",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+        {
+          type: "bus",
+          description: "Bus or taxi to Mishima Station",
+          from: "KIMIEN Hotel Apartments / Yamanakako",
+          to: "Mishima Station",
+          time: "~70 min",
+          confirmationNumber: "",
+        },
+        {
+          type: "train",
+          description: "Shinkansen (Kodama or Hikari)",
+          from: "Mishima Station",
+          to: "Kyoto Station",
+          time: "~2 hrs",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+      ],
+      accommodation: "MIMARU Kyoto Nijo Castle",
     },
-    notes: "Travel day — transfer from Yamanakako to Kyoto"
+    notes: "Travel day — transfer from Yamanakako to Kyoto",
   },
 
   // ─── KYOTO ───────────────────────────────────────────────────────────────
@@ -423,11 +475,12 @@ const itinerary = [
     bookings: [
       {
         name: "MIMARU Kyoto Nijo Castle",
-        description: "Centrally located near a major subway line — great access to most Kyoto sights",
-        location: "Kyoto, near Nijo Castle",
+        description: "Centrally located — great access to most Kyoto sights. On Horikawa-dori, 8 min walk from Nijojo-mae Station.",
+        address: "249 Tsuboyacho, Nakagyo-ku, Kyoto 604-8255",
         time: "Check-in",
-        confirmationNumber: ""
-      }
+        phone: "+81 75-585-5516",
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [],
@@ -435,23 +488,30 @@ const itinerary = [
       {
         name: "Local Markets",
         description: "Explore local markets near the hotel after check-in",
-        location: "Nijo area, Kyoto",
+        address: "Nijo area, Nakagyo-ku, Kyoto",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Nijo Castle",
         description: "Right next to the hotel — famous for its 'nightingale floors' that chirp when walked upon to warn of intruders",
-        location: "Nijo, Kyoto",
+        address: "541 Nijojocho, Nakagyo-ku, Kyoto 604-8301",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     logistics: {
-      transport: "Arriving from Mt. Fuji / Yamanakako via Shinkansen",
-      accommodation: "MIMARU Kyoto Nijo Castle"
+      transport: [
+        {
+          type: "train",
+          description: "Arriving via Shinkansen from Mishima",
+          from: "Mishima Station",
+          to: "Kyoto Station",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "MIMARU Kyoto Nijo Castle",
     },
-    notes: "Expect high humidity and temperatures exceeding 80°F. Start days early and take frequent water breaks."
+    notes: "Expect high humidity and temperatures exceeding 80°F. Start days early and take frequent water breaks.",
   },
   {
     date: "2026-06-30",
@@ -463,40 +523,45 @@ const itinerary = [
       {
         name: "Higashiyama District",
         description: "Historic preserved streets — go early morning before crowds arrive",
-        location: "Higashiyama, Kyoto",
+        address: "Higashiyama-ku, Kyoto 605-0862",
         time: "Early morning",
-        confirmationNumber: ""
       },
       {
         name: "Yasaka Shrine",
         description: "Iconic shrine in the heart of the Gion district",
-        location: "Gion, Kyoto",
+        address: "625 Gionmachi Kitagawa, Higashiyama-ku, Kyoto 605-0073",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Gion District",
         description: "Kyoto's famous geisha district — beautiful traditional architecture",
-        location: "Gion, Kyoto",
+        address: "Gionmachi, Higashiyama-ku, Kyoto 605-0073",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [
       {
         name: "Hikiniku to Come",
         description: "Famous for burger patties over rice — hard to get in, try for a reservation",
-        location: "Downtown Kyoto",
+        address: "Downtown Kyoto",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [],
     logistics: {
-      transport: "Subway or bus to Higashiyama",
-      accommodation: "MIMARU Kyoto Nijo Castle"
+      transport: [
+        {
+          type: "bus",
+          description: "Kyoto City Bus #100 or subway",
+          from: "Nijojo-mae Station",
+          to: "Higashiyama / Gion",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "MIMARU Kyoto Nijo Castle",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-07-01",
@@ -506,56 +571,59 @@ const itinerary = [
     bookings: [],
     see: [
       {
-        name: "Arashiyama Bamboo Forest",
+        name: "Arashiyama Bamboo Grove",
         description: "Iconic bamboo grove — go very early to beat the crowds",
-        location: "Arashiyama, Kyoto",
-        time: "Early morning (9am recommended)",
-        confirmationNumber: ""
+        address: "Sagaogurayama Tabuchiyamacho, Ukyo-ku, Kyoto 616-8394",
+        time: "Early morning (before 9am recommended)",
       },
       {
         name: "Tenryu-ji Temple",
         description: "Major Zen temple with a beautiful pond garden — UNESCO World Heritage site",
-        location: "Arashiyama, Kyoto",
+        address: "68 Susukinobabacho, Sagatenryuji, Ukyo-ku, Kyoto 616-8385",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Arashiyama Monkey Park Iwatayama",
         description: "20-30 min uphill hike — steep in sections but manageable. Feed wild macaques from inside a protected hut at the top.",
-        location: "Arashiyama, Kyoto",
+        address: "8 Arashiyamakorochichiyamacho, Nishikyo-ku, Kyoto 616-0007",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Kimono Forest",
         description: "Colorful kimono-patterned pillars at Arashiyama Station",
-        location: "Arashiyama Station, Kyoto",
+        address: "Saga-Arashiyama Station, Ukyo-ku, Kyoto",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Kinkaku-ji (Golden Pavilion)",
         description: "Famous gold-leafed temple reflected in a surrounding pond — best in morning light",
-        location: "Kyoto",
+        address: "1 Kinkakujicho, Kita-ku, Kyoto 603-8361",
         time: "Afternoon",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [],
     explore: [
       {
         name: "Hozugawa River Boat Ride",
         description: "Scenic boat ride down the river — weather permitting",
-        location: "Arashiyama, Kyoto",
+        address: "Arashiyama, Ukyo-ku, Kyoto",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     logistics: {
-      transport: "JR Sagano Line to Arashiyama — about 1 hour from central Kyoto",
-      accommodation: "MIMARU Kyoto Nijo Castle"
+      transport: [
+        {
+          type: "train",
+          description: "JR Sagano Line (Rapid)",
+          from: "Kyoto Station",
+          to: "Saga-Arashiyama Station",
+          time: "~15 min",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "MIMARU Kyoto Nijo Castle",
     },
-    notes: "Go early — Arashiyama gets very crowded. Kimono rental at Maikoya is an option here."
+    notes: "Go early — Arashiyama gets very crowded. Kimono rental is available at Maikoya.",
   },
   {
     date: "2026-07-02",
@@ -567,55 +635,58 @@ const itinerary = [
       {
         name: "Nara Park",
         description: "Home to hundreds of freely roaming deer that bow for crackers",
-        location: "Nara",
+        address: "469 Zoshicho, Nara-shi, Nara 630-8213",
         time: "Early — go before crowds",
-        confirmationNumber: ""
       },
       {
         name: "Todai-ji",
         description: "Houses one of the world's largest bronze Buddha statues inside a massive wooden hall",
-        location: "Nara",
+        address: "406-1 Zoshicho, Nara-shi, Nara 630-8211",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Mochi Pounding",
         description: "Watch or participate in traditional mochi pounding",
-        location: "Nara",
+        address: "Nakatanido, 29 Hashimotocho, Nara-shi, Nara 630-8362",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [
       {
         name: "Shika Senbei (Deer Crackers)",
         description: "Buy from local vendors to feed the bowing deer in Nara Park",
-        location: "Nara Park",
+        address: "Nara Park, Nara-shi, Nara",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Mizuya Chaya",
         description: "Known for their udon — great lunch stop in Nara",
-        location: "Nara",
+        address: "48 Noboriojimachi, Nara-shi, Nara 630-8213",
         time: "Lunch",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [
       {
         name: "Osaka Side Trip",
-        description: "Nara is on the way to Osaka — consider spending the afternoon in Dotonbori for street food and neon lights. Osaka Castle is also nearby.",
-        location: "Osaka",
+        description: "Nara is on the way to Osaka — consider spending the afternoon in Dotonbori for street food and neon lights.",
+        address: "Dotonbori, Namba, Chuo-ku, Osaka 542-0071",
         time: "Afternoon / Evening",
-        confirmationNumber: ""
-      }
+      },
     ],
     logistics: {
-      transport: "Kintetsu Limited Express 'Awoniyoshi' from Kyoto Station — 35 min scenic ride to Nara",
-      accommodation: "MIMARU Kyoto Nijo Castle"
+      transport: [
+        {
+          type: "train",
+          description: "Kintetsu Limited Express 'Awoniyoshi'",
+          from: "Kintetsu-Kyoto Station",
+          to: "Kintetsu-Nara Station",
+          time: "~35 min scenic ride",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "MIMARU Kyoto Nijo Castle",
     },
-    notes: "Go early to Nara to avoid the crowd"
+    notes: "Go early to Nara to avoid the crowds",
   },
   {
     date: "2026-07-03",
@@ -624,36 +695,60 @@ const itinerary = [
     title: "Samurai Experience & Travel to Yokohama",
     bookings: [
       {
-        name: "IHG Yokohama Grand",
-        description: "Hotel in Yokohama for the final leg of the trip",
-        location: "Yokohama",
+        name: "IHG InterContinental Yokohama Grand",
+        description: "Luxury hotel in Yokohama Minatomirai for the final leg of the trip",
+        address: "1-1-1 Minatomirai, Nishi-ku, Yokohama, Kanagawa 220-8522",
         time: "Check-in",
-        confirmationNumber: ""
-      }
+        phone: "+81 45-223-2300",
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [
       {
         name: "Samurai Ninja Museum Kyoto",
         description: "Family-friendly samurai experience — wear traditional armor and learn basic swordsmanship with a replica katana",
-        location: "Kyoto",
-        time: "",
-        confirmationNumber: ""
+        address: "292 Higashidaimonjicho, Nakagyo-ku, Kyoto 604-8004",
+        time: "Morning",
       },
       {
         name: "Nishiki Market",
         description: "Kyoto's famous covered market — try local snacks like grilled octopus or mochi",
-        location: "Downtown Kyoto",
+        address: "609 Nakanocho, Nakagyo-ku, Kyoto 604-8054",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [],
     explore: [],
     logistics: {
-      transport: "Check out of MIMARU Kyoto. Travel to Yokohama — Shinkansen to Shin-Yokohama recommended.",
-      accommodation: "IHG Yokohama Grand"
+      transport: [
+        {
+          type: "luggage",
+          description: "Yamato TA-Q-BIN luggage forwarding",
+          from: "MIMARU Kyoto Nijo Castle",
+          to: "IHG InterContinental Yokohama Grand",
+          time: "Arrange day before — pickup by 12:00pm",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+        {
+          type: "train",
+          description: "Shinkansen (Nozomi)",
+          from: "Kyoto Station",
+          to: "Shin-Yokohama Station",
+          time: "~2.5 hrs",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+        {
+          type: "taxi",
+          description: "Taxi or Minatomirai Line to hotel",
+          from: "Shin-Yokohama Station",
+          to: "IHG InterContinental Yokohama Grand",
+          time: "~20 min",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "IHG InterContinental Yokohama Grand",
     },
-    notes: "Travel day — Kyoto to Yokohama"
+    notes: "Travel day — Kyoto to Yokohama. Check out of MIMARU Kyoto in the morning.",
   },
 
   // ─── YOKOHAMA ────────────────────────────────────────────────────────────
@@ -664,21 +759,30 @@ const itinerary = [
     title: "Exploring Yokohama",
     bookings: [
       {
-        name: "Cup Noodle Museum",
+        name: "Cup Noodles Museum",
         description: "Interactive museum about the history of instant noodles — make your own cup",
-        location: "Yokohama",
+        address: "2-3-4 Shinko, Naka-ku, Yokohama 231-0001",
         time: "11:00am",
-        confirmationNumber: ""
-      }
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [],
     explore: [],
     logistics: {
-      transport: "",
-      accommodation: "IHG Yokohama Grand"
+      transport: [
+        {
+          type: "train",
+          description: "Minatomirai Line (8 min walk from hotel)",
+          from: "IHG InterContinental Yokohama Grand",
+          to: "Cup Noodles Museum (8 min walk from Minatomirai Station)",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "IHG InterContinental Yokohama Grand",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-07-05",
@@ -689,56 +793,67 @@ const itinerary = [
     see: [
       {
         name: "Kamakura Temples",
-        description: "Explore temples in Kamakura in the morning before heading to Enoshima",
-        location: "Kamakura",
+        description: "Explore temples in Kamakura in the morning — Kotoku-in (Great Buddha) is a must",
+        address: "4-2-28 Hase, Kamakura-shi, Kanagawa 248-0016",
         time: "Morning",
-        confirmationNumber: ""
       },
       {
         name: "Enoden Line",
-        description: "Small coastal train from Kamakura station to Enoshima — rides along the coast",
-        location: "Kamakura to Enoshima",
+        description: "Small coastal train from Kamakura to Enoshima — rides along the coast with ocean views",
+        address: "Kamakura Station, Kamakura-shi, Kanagawa 248-0006",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Enoshima Island",
-        description: "Explore the island — spot community cats",
-        location: "Enoshima",
+        description: "Explore the island — spot community cats along the way",
+        address: "2 Chome Enoshima, Fujisawa-shi, Kanagawa 251-0036",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Enoshima Iwaya Caves",
-        description: "Sea caves on the far end of the island",
-        location: "Enoshima",
+        description: "Sea caves on the far end of the island — bring a candle",
+        address: "2 Chome-3 Enoshima, Fujisawa-shi, Kanagawa 251-0036",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [
       {
         name: "Enoshima Benzaiten Shopping Street",
-        description: "Street food along the main shopping street leading to the island",
-        location: "Enoshima",
+        description: "Street food along the main shopping street leading to the island — try shirasu (whitebait) dishes",
+        address: "Enoshima, Fujisawa-shi, Kanagawa 251-0036",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [
       {
         name: "Beach & Sunset",
         description: "Hang out on the beach and watch the sunset",
-        location: "Enoshima",
+        address: "Enoshima Beach, Fujisawa-shi, Kanagawa",
         time: "Evening",
-        confirmationNumber: ""
-      }
+      },
     ],
     logistics: {
-      transport: "Train from Yokohama to Kamakura, then Enoden Line to Enoshima",
-      accommodation: "IHG Yokohama Grand"
+      transport: [
+        {
+          type: "train",
+          description: "JR Yokosuka Line or Shonan-Shinjuku Line",
+          from: "Yokohama Station",
+          to: "Kamakura Station",
+          time: "~55 min",
+          confirmationNumber: "",
+        },
+        {
+          type: "train",
+          description: "Enoden Line (Enoshima Electric Railway)",
+          from: "Kamakura Station",
+          to: "Enoshima Station",
+          time: "~25 min",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "IHG InterContinental Yokohama Grand",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-07-06",
@@ -749,26 +864,33 @@ const itinerary = [
     see: [
       {
         name: "Shin-Yokohama Ramen Museum",
-        description: "Not just a museum — the basement is a 1958-themed recreation of a Tokyo neighborhood where you can try mini-bowls from famous ramen shops across Japan",
-        location: "Shin-Yokohama, Yokohama",
+        description: "The basement is a 1958-themed recreation of a Tokyo neighborhood with famous ramen shops from across Japan — try mini-bowls from multiple shops",
+        address: "2-14-21 Shin-Yokohama, Kohoku-ku, Yokohama 222-0033",
         time: "",
-        confirmationNumber: ""
       },
       {
         name: "Yokohama Chinatown",
         description: "Largest Chinatown in Japan — colorful gates, the Kanteibyo Temple, and great food",
-        location: "Yokohama",
+        address: "149 Yamashitacho, Naka-ku, Yokohama 231-0023",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     eat: [],
     explore: [],
     logistics: {
-      transport: "",
-      accommodation: "IHG Yokohama Grand"
+      transport: [
+        {
+          type: "train",
+          description: "JR Yokohama Line or Shinkansen",
+          from: "Yokohama Station / Shin-Yokohama Station",
+          to: "Shin-Yokohama Station (Ramen Museum, 5 min walk)",
+          time: "",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "IHG InterContinental Yokohama Grand",
     },
-    notes: ""
+    notes: "",
   },
   {
     date: "2026-07-07",
@@ -780,10 +902,10 @@ const itinerary = [
     eat: [],
     explore: [],
     logistics: {
-      transport: "",
-      accommodation: "IHG Yokohama Grand"
+      transport: [],
+      accommodation: "IHG InterContinental Yokohama Grand",
     },
-    notes: "Open day — rest, explore, or revisit a favorite spot"
+    notes: "Open day — rest, explore, or revisit a favorite spot",
   },
   {
     date: "2026-07-08",
@@ -794,10 +916,10 @@ const itinerary = [
       {
         name: "Baseball Game",
         description: "Evening baseball game in Tokyo",
-        location: "Tokyo",
+        address: "Tokyo",
         time: "6:00pm",
-        confirmationNumber: ""
-      }
+        confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+      },
     ],
     see: [],
     eat: [],
@@ -805,16 +927,24 @@ const itinerary = [
       {
         name: "Last Minute Souvenirs",
         description: "Spend the day in Tokyo picking up final souvenirs before heading home",
-        location: "Tokyo",
+        address: "Tokyo",
         time: "",
-        confirmationNumber: ""
-      }
+      },
     ],
     logistics: {
-      transport: "Train from Yokohama to Tokyo",
-      accommodation: "IHG Yokohama Grand"
+      transport: [
+        {
+          type: "train",
+          description: "JR Tokaido Line or Keikyu Line",
+          from: "Yokohama Station",
+          to: "Tokyo / Shibuya",
+          time: "~30 min",
+          confirmationNumber: "",
+        },
+      ],
+      accommodation: "IHG InterContinental Yokohama Grand",
     },
-    notes: "Souvenir ideas: Furikake, Rokusuke Salt, Chopsticks, Shichimi, Nail clippers, Lash curler, Eyelash clusters, Japanese knife. Give kids $20/day for shopping, desserts, and games."
+    notes: "Souvenir ideas: Furikake, Rokusuke Salt, Chopsticks, Shichimi, Nail clippers, Lash curler, Eyelash clusters, Japanese knife. Give kids $20/day for shopping, desserts, and games.",
   },
   {
     date: "2026-07-09",
@@ -827,18 +957,26 @@ const itinerary = [
       {
         name: "Final Breakfast",
         description: "Enjoy a final breakfast overlooking the harbor",
-        location: "IHG Yokohama Grand or nearby",
+        address: "IHG InterContinental Yokohama Grand or nearby",
         time: "Morning",
-        confirmationNumber: ""
-      }
+      },
     ],
     explore: [],
     logistics: {
-      transport: "Head to airport — departure day",
-      accommodation: ""
+      transport: [
+        {
+          type: "van",
+          description: "Transfer to airport",
+          from: "IHG InterContinental Yokohama Grand",
+          to: "Narita International Airport",
+          time: "ADD-DEPARTURE-TIME",
+          confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+        },
+      ],
+      accommodation: "",
     },
-    notes: "Departure day — sayonara Japan!"
-  }
+    notes: "Departure day — sayonara Japan!",
+  },
 ];
 
 export default itinerary;

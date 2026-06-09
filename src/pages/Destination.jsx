@@ -22,6 +22,10 @@ export default function Destination() {
   const meta = DESTINATIONS.find(d => d.name === decodedName) || {}
 
   const entries = itinerary.filter(e => e.destination.startsWith(decodedName))
+  const accommodationName = entries.find(e => e.logistics?.accommodation)?.logistics?.accommodation ?? ''
+  const hotelBooking = itinerary
+    .flatMap(e => e.bookings ?? [])
+    .find(b => b.time === 'Check-in' && b.name === accommodationName)
 
   return (
     <div className="dest-page">
@@ -32,6 +36,24 @@ export default function Destination() {
         <div>
           <h1 className="dest-page__name">{decodedName}</h1>
           <p className="dest-page__dates">{meta.dates}</p>
+          {hotelBooking && (
+            <div className="dest-page__hotel">
+              <p className="dest-page__hotel-name">{hotelBooking.name}</p>
+              {hotelBooking.address && <p className="dest-page__hotel-detail">{hotelBooking.address}</p>}
+              {hotelBooking.phone && (
+                <p className={`dest-page__hotel-detail ${hotelBooking.phone.startsWith('ADD-') ? 'dest-page__hotel-detail--placeholder' : ''}`}>
+                  {hotelBooking.phone.startsWith('ADD-') ? hotelBooking.phone.replace(/-/g, ' ') : `☎ ${hotelBooking.phone}`}
+                </p>
+              )}
+              {hotelBooking.confirmationNumber && (
+                <p className={`dest-page__hotel-detail ${hotelBooking.confirmationNumber.startsWith('ADD-') ? 'dest-page__hotel-detail--placeholder' : ''}`}>
+                  {hotelBooking.confirmationNumber.startsWith('ADD-')
+                    ? hotelBooking.confirmationNumber.replace(/-/g, ' ')
+                    : `Conf · ${hotelBooking.confirmationNumber}`}
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </header>
 
