@@ -1,16 +1,41 @@
-# React + Vite
+# Japan Trip 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personalized travel companion app built for a Japan trip. Designed to work offline so it's useful exactly when you need it — on the ground, without relying on data.
 
-Currently, two official plugins are available:
+## Intent
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Most travel apps are built around discovery. This one is built around a plan that already exists. The itinerary is baked directly into the app as structured data, so there's no login, no sync, no account — just the trip.
 
-## React Compiler
+It's meant to be shared with travel companions so everyone has the same information in their pocket.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Today view** — the current day's itinerary at a glance, including bookings, places to see, food, and logistics
+- **Destination pages** — browse all days by city (Tokyo, Mt. Fuji, Kyoto, Yokohama)
+- **Day detail pages** — full breakdown of any day: bookings with confirmation numbers, notes, travel logistics
+- **Offline-first** — installable as a PWA; works without an internet connection once loaded
+- **No backend** — the itinerary lives in the app itself; nothing to sign into or sync
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Stack
+
+- React + Vite
+- React Router (HashRouter for static hosting compatibility)
+- vite-plugin-pwa for service worker and offline support
+- Deployed to GitHub Pages at [vientang.github.io/japan-trip](https://vientang.github.io/japan-trip/)
+
+## Install on your phone
+
+Open the deployed URL in your mobile browser and use **Add to Home Screen**. The app will install like a native app and work offline from that point on. Updates are pulled automatically in the background when a new version is deployed.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy
+
+```bash
+npm run deploy
+```
