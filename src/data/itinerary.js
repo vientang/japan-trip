@@ -979,4 +979,40 @@ const itinerary = [
   },
 ];
 
+export const LOCATIONS = {
+  Yokohama: [
+    {
+      name: "KLA Corporation",
+      address: "Ocean Gate Minatomirai 11F, 3-7-1 Minatomirai, Nishi-ku, Yokohama-city, Kanagawa",
+    },
+  ],
+}
+
+export const HOTELS = {
+  Tokyo: {
+    name: "Hotel Minn Nihonbashi Suitengumae",
+    address: "3-7-3 Nihonbashi Ningyocho, Chuo-ku, Tokyo 103-0013",
+    phone: "ADD-PHONE-NUMBER",
+    confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+  },
+  "Mt. Fuji": {
+    name: "KIMIEN Hotel Apartments",
+    address: "1410 Yamanaka, Yamanakako-mura, Minamitsuru-gun, Yamanashi 401-0501",
+    phone: "0555-28-5171",
+    confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+  },
+  Kyoto: {
+    name: "MIMARU Kyoto Nijo Castle",
+    address: "249 Tsuboyacho, Nakagyo-ku, Kyoto 604-8255",
+    phone: "+81 75-585-5516",
+    confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+  },
+  Yokohama: {
+    name: "IHG InterContinental Yokohama Grand",
+    address: "1-1-1 Minatomirai, Nishi-ku, Yokohama, Kanagawa 220-8522",
+    phone: "+81 45-223-2300",
+    confirmationNumber: "ADD-CONFIRMATION-NUMBER",
+  },
+}
+
 export default itinerary;

@@ -1,11 +1,24 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import itinerary from '../data/itinerary'
+import itinerary, { HOTELS, LOCATIONS } from '../data/itinerary'
 import { DESTINATIONS } from '../components/DestinationCards'
 import './Destination.css'
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00')
   return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+}
+
+function mapsUrl(address) {
+  return `https://maps.google.com/?q=${encodeURIComponent(address)}`
+}
+
+function AddressLink({ address }) {
+  if (!address) return null
+  return (
+    <a href={mapsUrl(address)} target="_blank" rel="noopener noreferrer" className="address-link">
+      {address}
+    </a>
+  )
 }
 
 function previewItems(entry) {
@@ -22,10 +35,8 @@ export default function Destination() {
   const meta = DESTINATIONS.find(d => d.name === decodedName) || {}
 
   const entries = itinerary.filter(e => e.destination.startsWith(decodedName))
-  const accommodationName = entries.find(e => e.logistics?.accommodation)?.logistics?.accommodation ?? ''
-  const hotelBooking = itinerary
-    .flatMap(e => e.bookings ?? [])
-    .find(b => b.time === 'Check-in' && b.name === accommodationName)
+  const hotel = HOTELS[decodedName]
+  const locations = LOCATIONS[decodedName] ?? []
 
   return (
     <div className="dest-page">
@@ -36,24 +47,30 @@ export default function Destination() {
         <div>
           <h1 className="dest-page__name">{decodedName}</h1>
           <p className="dest-page__dates">{meta.dates}</p>
-          {hotelBooking && (
+          {hotel && (
             <div className="dest-page__hotel">
-              <p className="dest-page__hotel-name">{hotelBooking.name}</p>
-              {hotelBooking.address && <p className="dest-page__hotel-detail">{hotelBooking.address}</p>}
-              {hotelBooking.phone && (
-                <p className={`dest-page__hotel-detail ${hotelBooking.phone.startsWith('ADD-') ? 'dest-page__hotel-detail--placeholder' : ''}`}>
-                  {hotelBooking.phone.startsWith('ADD-') ? hotelBooking.phone.replace(/-/g, ' ') : `☎ ${hotelBooking.phone}`}
+              <p className="dest-page__hotel-name">{hotel.name}</p>
+              {hotel.address && <p className="dest-page__hotel-detail"><AddressLink address={hotel.address} /></p>}
+              {hotel.phone && (
+                <p className={`dest-page__hotel-detail ${hotel.phone.startsWith('ADD-') ? 'dest-page__hotel-detail--placeholder' : ''}`}>
+                  {hotel.phone.startsWith('ADD-') ? hotel.phone.replace(/-/g, ' ') : `☎ ${hotel.phone}`}
                 </p>
               )}
-              {hotelBooking.confirmationNumber && (
-                <p className={`dest-page__hotel-detail ${hotelBooking.confirmationNumber.startsWith('ADD-') ? 'dest-page__hotel-detail--placeholder' : ''}`}>
-                  {hotelBooking.confirmationNumber.startsWith('ADD-')
-                    ? hotelBooking.confirmationNumber.replace(/-/g, ' ')
-                    : `Conf · ${hotelBooking.confirmationNumber}`}
+              {hotel.confirmationNumber && (
+                <p className={`dest-page__hotel-detail ${hotel.confirmationNumber.startsWith('ADD-') ? 'dest-page__hotel-detail--placeholder' : ''}`}>
+                  {hotel.confirmationNumber.startsWith('ADD-')
+                    ? hotel.confirmationNumber.replace(/-/g, ' ')
+                    : `Conf · ${hotel.confirmationNumber}`}
                 </p>
               )}
             </div>
           )}
+          {locations.map((loc, i) => (
+            <div key={i} className="dest-page__location">
+              <p className="dest-page__location-name">{loc.name}</p>
+              {loc.address && <p className="dest-page__hotel-detail"><AddressLink address={loc.address} /></p>}
+            </div>
+          ))}
         </div>
       </header>
 

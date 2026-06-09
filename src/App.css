@@ -36,3 +36,15 @@ body {
 .back-btn:hover {
   color: var(--color-ink);
 }
+
+.address-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-ink-muted);
+}
+
+.address-link:hover {
+  text-decoration-style: solid;
+}

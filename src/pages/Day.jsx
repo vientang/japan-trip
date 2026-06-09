@@ -2,6 +2,19 @@ import { useParams, useNavigate } from 'react-router-dom'
 import itinerary from '../data/itinerary'
 import './Day.css'
 
+function mapsUrl(address) {
+  return `https://maps.google.com/?q=${encodeURIComponent(address)}`
+}
+
+function AddressLink({ address }) {
+  if (!address) return null
+  return (
+    <a href={mapsUrl(address)} target="_blank" rel="noopener noreferrer" className="address-link">
+      {address}
+    </a>
+  )
+}
+
 const TRANSPORT_LABELS = {
   van:     'Private Transfer',
   bus:     'Bus',
@@ -45,8 +58,8 @@ export default function Day() {
     </div>
   )
 
-  const isTravelDay = entry.destination.includes('→')
   const transportLegs = entry.logistics?.transport ?? []
+  const isTravelDay = entry.destination.includes('→') || transportLegs.length > 0
 
   return (
     <div className="day-page">
@@ -94,7 +107,7 @@ export default function Day() {
                   {item.time && <span className="day-item__time">{item.time}</span>}
                 </div>
                 {item.description && <p className="day-item__desc">{item.description}</p>}
-                {item.address && <p className="day-item__address">{item.address}</p>}
+                {item.address && <p className="day-item__address"><AddressLink address={item.address} /></p>}
                 <ConfNumber value={item.confirmationNumber} />
               </div>
             ))}

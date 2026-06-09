@@ -1,6 +1,6 @@
 .dest-page__header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-lg);
   margin-bottom: var(--space-xl);
 }
@@ -21,6 +21,19 @@
   font-size: 13px;
   color: var(--color-ink-muted);
   letter-spacing: 0.05em;
+}
+
+.dest-page__location {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dest-page__location-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-ink);
 }
 
 .dest-page__hotel {
