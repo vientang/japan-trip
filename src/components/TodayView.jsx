@@ -12,6 +12,10 @@ function toDateStr(date) {
   return date.toISOString().split('T')[0]
 }
 
+function formatDate(date) {
+  return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+}
+
 export default function TodayView({ itinerary, today }) {
   const todayStr = toDateStr(today)
   const todayEntries = itinerary.filter(d => d.date === todayStr)
@@ -20,7 +24,10 @@ export default function TodayView({ itinerary, today }) {
   
   return (
     <section className="today">
-      <p className="today__label">Today</p>
+      <div className="today__header">
+        <p className="today__label">Today</p>
+        <p className="today__date">{formatDate(today)}</p>
+      </div>
       {todayEntries.map((entry, i) => (
         <div key={i} className="today__entry">
           <h2 className="today__title">{entry.title}</h2>

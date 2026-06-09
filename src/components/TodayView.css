@@ -2,13 +2,25 @@
     margin-bottom: var(--space-xl);
   }
   
-  .today__label {
+  .today__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.today__label {
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: var(--space-md);
   }
+
+.today__date {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted);
+}
   
   .today__entry {
     background: var(--color-surface);

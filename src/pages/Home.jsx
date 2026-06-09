@@ -7,7 +7,7 @@ const TRIP_START = new Date('2026-06-21')
 const TRIP_END   = new Date('2026-07-09')
 
 export default function Home() {
-  const today = new Date('2026-06-24')
+  const today = new Date('2026-06-21')
   const duringTrip = today >= TRIP_START && today <= TRIP_END
 
   return (
