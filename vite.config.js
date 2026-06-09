@@ -12,8 +12,8 @@ export default defineConfig({
         name: 'Japan Trip 2026',
         short_name: 'JapanTrip',
         description: 'Personal itinerary app for Japan trip June–July 2026',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
+        theme_color: '#2C3E6B',
+        background_color: '#F7F5F0',
         display: 'standalone',
         icons: [
           {
@@ -24,7 +24,8 @@ export default defineConfig({
           {
             src: 'pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       },
